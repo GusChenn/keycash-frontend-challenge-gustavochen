@@ -18,12 +18,12 @@ function Vitrine() {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'center',
           borderRadius: '15px',
           boxShadow: 1,
           margin: '10px',
-          width: '60%',
+          width: '90%',
           height: '70%',
-          padding: '10px',
           flexWrap: 'wrap',
         }}
       >

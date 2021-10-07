@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Vitrine from './components/Vitrine';
-import Toolbar from './components/Toolbar';
+import Tools from './components/Tools';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Toolbar />
+    <Tools />
     <Vitrine />
   </React.StrictMode>,
   document.getElementById('root'),

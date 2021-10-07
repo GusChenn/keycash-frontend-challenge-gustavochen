@@ -12,12 +12,17 @@ function Card() {
         boxShadow: 1,
         margin: '7px',
         padding: '5px ',
+        backgroundImage: 'linear-gradient(to right, #FF0094, #F1008C)',
+        width: '15%',
+        overflow: 'hidden',
       }}
     >
       <Box
         className="imagem_casa"
       >
-        odsfnnoidsfnodnoim
+        <a href="https://placeholder.com">
+          <img src="https://via.placeholder.com/300" alt="Imagem imóvel" />
+        </a>
       </Box>
     </Box>
   );
