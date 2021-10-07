@@ -21,8 +21,10 @@ function Vitrine() {
           borderRadius: '15px',
           boxShadow: 1,
           margin: '10px',
-          width: '50%',
+          width: '60%',
+          height: '70%',
           padding: '10px',
+          flexWrap: 'wrap',
         }}
       >
         <Card />
