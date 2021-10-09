@@ -13,7 +13,6 @@ function Card() {
         margin: '7px',
         padding: '5px ',
         backgroundImage: 'linear-gradient(to right, #FF0094, #F1008C)',
-        width: '15%',
         overflow: 'hidden',
       }}
     >

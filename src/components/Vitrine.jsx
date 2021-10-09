@@ -2,7 +2,8 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Card from './Card';
 
-function Vitrine() {
+function Vitrine({ quantity }) {
+  console.log(quantity);
   return (
     <Box
       sx={{

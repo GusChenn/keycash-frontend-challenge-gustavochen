@@ -1,11 +1,13 @@
-import React from 'react';
+import { React, useState } from 'react';
 import {
   Toolbar,
   AppBar,
   Box,
 } from '@mui/material';
+import Vitrine from './Vitrine';
 
-function Tools() {
+function Optionsbar() {
+  const [quantity, setQuantity] = useState(5);
   return (
     <Box
       sx={{
@@ -14,7 +16,7 @@ function Tools() {
     >
       <AppBar
         sx={{
-          bgcolor: '#373737',
+          bgcolor: '#E0E0E0',
         }}
       >
         <Toolbar
@@ -23,18 +25,30 @@ function Tools() {
             flexDirection: 'row',
           }}
         >
-          <Box>
+          <Box
+            sx={{
+              color: '#1E1E1E',
+              fontFamily: 'Roboto',
+              mr: 1,
+            }}
+          >
             Quantidade de itens por página:
           </Box>
-          <select>
+          <select
+            onChange={(e) => {
+              setQuantity(e.target.value);
+              console.log(quantity);
+            }}
+          >
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
           </select>
         </Toolbar>
       </AppBar>
+      <Vitrine quantity={this.quantity} />
     </Box>
   );
 }
 
-export default Tools;
+export default Optionsbar;

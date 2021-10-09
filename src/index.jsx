@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Vitrine from './components/Vitrine';
-import Tools from './components/Tools';
+// eslint-disable-next-line import/no-named-as-default
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Tools />
-    <Vitrine />
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );
