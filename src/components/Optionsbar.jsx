@@ -3,11 +3,17 @@ import {
   Toolbar,
   AppBar,
   Box,
+  Select,
+  MenuItem,
+  FormControl,
 } from '@mui/material';
 import Vitrine from './Vitrine';
 
 function Optionsbar() {
-  const [quantity, setQuantity] = useState(5);
+  const [state, setState] = useState({ quantity: 5 });
+  const handleChange = (e) => {
+    setState({ quantity: parseInt(e.target.value, 10) });
+  };
   return (
     <Box
       sx={{
@@ -34,19 +40,24 @@ function Optionsbar() {
           >
             Quantidade de itens por página:
           </Box>
-          <select
-            onChange={(e) => {
-              setQuantity(e.target.value);
-              console.log(quantity);
-            }}
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-          </select>
+          <FormControl variant="standard" sx={{ m: 1 }}>
+            <Select
+              labelId="cards-per-page-quantity"
+              value={state.quantity}
+              sx={{
+                margin: '0',
+                padding: '1px',
+              }}
+              onChange={handleChange}
+            >
+              <MenuItem value={5}>5</MenuItem>
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={15}>15</MenuItem>
+            </Select>
+          </FormControl>
         </Toolbar>
       </AppBar>
-      <Vitrine quantity={this.quantity} />
+      <Vitrine quantity={state.quantity} />
     </Box>
   );
 }
