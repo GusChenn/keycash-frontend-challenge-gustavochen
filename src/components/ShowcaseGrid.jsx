@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import { Box } from '@mui/material';
 import ProductCard from './ProductCard';
 
-function Vitrine(props) {
+export default function ShowcaseGrid(props) {
   const { quantity } = props;
   if (parseInt(quantity, 10) === 5) {
     return (
-      <ProductCard />
+      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+        <ProductCard />
+      </Box>
     );
   }
   if (parseInt(quantity, 10) === 10) {
     return (
-      <Box>
+      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
         <ProductCard />
         <ProductCard />
       </Box>
@@ -20,7 +22,10 @@ function Vitrine(props) {
   }
   if (parseInt(quantity, 10) === 15) {
     return (
-      <Box>
+      <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
@@ -29,8 +34,6 @@ function Vitrine(props) {
   }
 }
 
-Vitrine.propTypes = {
+ShowcaseGrid.propTypes = {
   quantity: PropTypes.string.isRequired,
 };
-
-export default Vitrine;

@@ -12,6 +12,8 @@ import {
   Typography,
   IconButton,
   Box,
+  Grid,
+  Divider,
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
@@ -56,7 +58,7 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, mt: 10 }}>
+    <Card sx={{ width: 400, mt: 10 }}>
       <CardMedia
         component="img"
         image={infosTeste.image}
@@ -66,86 +68,157 @@ export default function RecipeReviewCard() {
       <CardHeader
         title={infosTeste.address}
       />
-      <CardContent>
-        <Typography variant="body1" color="text.secondary">
-          <Box sx={{ mr: '4px', display: 'inline' }}>
-            Área útil de
-          </Box>
+      <Typography variant="body1" color="text.secondary">
+        <Box
+          sx={{
+            mr: '0.3em',
+            display: 'inline',
+            ml: '5%',
+          }}
+        >
+          Área útil de
+        </Box>
+        <Box sx={{ color: '#FF149C', display: 'inline' }}>
           {infosTeste.usableArea}
           m²
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        </Box>
+      </Typography>
+      <CardActions
+        sx={{
+          justifyContent: 'center',
+          padding: 0,
+          width: '58%',
+          mt: '5%',
+        }}
+      >
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon sx={{ color: '#FF149C' }} />
+          <ExpandMoreIcon sx={{ fontSize: '40px', color: '#FF149C' }} />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph sx={{ my: 0, py: 0 }}>
-            <Box sx={{
-              display: 'inline',
-              mr: '4px',
-              fontWeight: 'bold',
-              color: '#FF149C',
-              fontSize: '50px',
-              mb: '0',
-            }}
+          <Grid
+            container
+            spacing={1}
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            alignContent="center"
+            wrap="wrap"
+            sx={{ xs: 1, sm: 2, md: 3 }}
+          >
+            <Grid item xs={6}>
+              <Typography
+                paragraph
+                sx={{
+                  mb: 2,
+                  py: 0,
+                  px: 2,
+                  mx: 1,
+                  borderRadius: '7%',
+                  justifyContent: 'center',
+                  boxShadow: '1',
+                }}
+              >
+                <Box sx={{
+                  display: 'inline',
+                  mr: '4px',
+                  fontWeight: 'bold',
+                  color: '#FF149C',
+                  fontSize: '50px',
+                  mb: '0',
+                }}
+                >
+                  {infosTeste.bedrooms}
+                </Box>
+                Dormitórios
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography
+                paragraph
+                sx={{
+                  mb: 2,
+                  py: 0,
+                  px: 2,
+                  mx: 1,
+                  borderRadius: '7%',
+                  justifyContent: 'center',
+                  boxShadow: '1',
+                }}
+              >
+                <Box sx={{
+                  display: 'inline',
+                  mr: '4px',
+                  fontWeight: 'bold',
+                  color: '#FF149C',
+                  fontSize: '50px',
+                }}
+                >
+                  {infosTeste.bathrooms}
+                </Box>
+                Banheiros
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                sx={{
+                  mb: 3,
+                  py: 0,
+                  px: 2,
+                  mx: 1,
+                  borderRadius: '7%',
+                  justifyContent: 'center',
+                  boxShadow: '1',
+                }}
+              >
+                <Box sx={{
+                  display: 'inline',
+                  mr: '4px',
+                  fontWeight: 'bold',
+                  color: '#FF149C',
+                  fontSize: '50px',
+                }}
+                >
+                  {infosTeste.parkingSpaces}
+                </Box>
+                Vagas para veiculos
+              </Typography>
+            </Grid>
+            <Typography
+              paragraph
+              sx={{
+                mt: 2,
+                mb: 2,
+                py: 0,
+                px: 2,
+                mx: 1,
+                justifyContent: 'center',
+              }}
             >
-              {infosTeste.bedrooms}
-            </Box>
-            Quartos
-          </Typography>
-          <Typography paragraph sx={{ my: 0, py: 0 }}>
-            <Box sx={{
-              display: 'inline',
-              mr: '4px',
-              fontWeight: 'bold',
-              color: '#FF149C',
-              fontSize: '50px',
-            }}
-            >
-              {infosTeste.bathrooms}
-            </Box>
-            Banheiros
-          </Typography>
-          <Typography paragraph sx={{ my: 0, py: 0 }}>
-            {bull}
-            <Box sx={{
-              display: 'inline',
-              mr: '4px',
-              fontWeight: 'bold',
-              color: '#FF149C',
-            }}
-            >
-              {infosTeste.parkingSpaces}
-            </Box>
-            Vagas
-          </Typography>
-          <Typography paragraph>
-            {bull}
-            <Box sx={{
-              display: 'inline',
-              mr: '4px',
-              fontWeight: 'bold',
-              color: '#FF149C',
-            }}
-            >
-              {infosTeste.price}
-            </Box>
-            R$
-          </Typography>
+              <Divider />
+              <Box sx={{ mt: 4 }}>
+                Valor:
+              </Box>
+              <Box sx={{
+                display: 'inline',
+                mr: '4px',
+                fontWeight: 'bold',
+                color: '#FF149C',
+                fontSize: '50px',
+              }}
+              >
+                {infosTeste.price}
+              </Box>
+              R$
+            </Typography>
+          </Grid>
         </CardContent>
       </Collapse>
     </Card>

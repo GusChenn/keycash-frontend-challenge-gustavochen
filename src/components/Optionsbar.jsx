@@ -7,7 +7,7 @@ import {
   MenuItem,
   FormControl,
 } from '@mui/material';
-import Vitrine from './Vitrine';
+import Vitrine from './ShowcaseGrid';
 
 function Optionsbar() {
   const [state, setState] = useState({ quantity: '5' });

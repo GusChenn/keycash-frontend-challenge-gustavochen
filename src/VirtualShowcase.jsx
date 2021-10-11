@@ -1,28 +1,26 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Optionsbar from './components/Optionsbar';
+import Options from './components/Options';
 import background from './resources/Background.png';
-import './App.css';
+import './VirtualShowcase.css';
 
 const styles = {
-  vitrineMoveis: {
+  virtualShowcase: {
     backgroundImage: `url(${background})`,
-    backgrounSize: 'cover',
+    backgrounSize: 'auto cover',
     padding: '0',
     margin: '0',
     width: '100vw',
     height: '100vh',
     zIndex: '999',
-    overflow: 'hidden',
+    overflow: 'scroll',
   },
 };
 
-function App() {
+export default function VirtualShowcase() {
   return (
-    <Box className="wrapper" style={styles.vitrineMoveis}>
-      <Optionsbar />
+    <Box className="wrapper" style={styles.virtualShowcase}>
+      <Options />
     </Box>
   );
 }
-
-export default App;

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line import/no-named-as-default
-import App from './App';
+import VirtualShowcase from './VirtualShowcase';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <VirtualShowcase />
   </React.StrictMode>,
   document.getElementById('root'),
 );
