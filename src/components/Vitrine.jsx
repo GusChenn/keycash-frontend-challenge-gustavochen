@@ -1,22 +1,30 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '@mui/material';
 import ProductCard from './ProductCard';
 
 function Vitrine(props) {
   const { quantity } = props;
-  if (quantity === 5) {
+  if (parseInt(quantity, 10) === 5) {
     return (
       <ProductCard />
     );
   }
-  if (quantity === 10) {
+  if (parseInt(quantity, 10) === 10) {
     return (
-      <ProductCard />
+      <Box>
+        <ProductCard />
+        <ProductCard />
+      </Box>
     );
   }
-  if (quantity === 15) {
+  if (parseInt(quantity, 10) === 15) {
     return (
-      <ProductCard />
+      <Box>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </Box>
     );
   }
 }

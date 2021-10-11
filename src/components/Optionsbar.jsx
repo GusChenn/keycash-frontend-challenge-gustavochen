@@ -10,9 +10,9 @@ import {
 import Vitrine from './Vitrine';
 
 function Optionsbar() {
-  const [state, setState] = useState({ quantity: 5 });
+  const [state, setState] = useState({ quantity: '5' });
   const handleChange = (e) => {
-    setState({ quantity: parseInt(e.target.value, 10) });
+    setState({ quantity: e.target.value });
   };
   return (
     <Box
@@ -50,9 +50,9 @@ function Optionsbar() {
               }}
               onChange={handleChange}
             >
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
-              <MenuItem value={15}>15</MenuItem>
+              <MenuItem value="5">5</MenuItem>
+              <MenuItem value="10">10</MenuItem>
+              <MenuItem value="15">15</MenuItem>
             </Select>
           </FormControl>
         </Toolbar>
