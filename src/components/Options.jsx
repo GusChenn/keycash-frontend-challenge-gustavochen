@@ -28,146 +28,201 @@ export default function Options() {
     setState({ quantity: e.target.value });
   };
   return (
-    <Box>
-      <Paper
+    <Grid
+      className="all-container"
+      container
+      spacing={1}
+      direction="row"
+      alignItems="flex-start"
+      alignContent="center"
+      justifyContent="space-evenly"
+      wrap="wrap"
+      sx={{
+        width: '100vw',
+      }}
+    >
+      <Grid
+        className="options-container"
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        lg={3}
         sx={{
-          maxWidth: '100vw',
-          p: 2,
           display: 'flex',
-          flexDirection: 'column',
+          justifyContent: 'center',
+          mt: 2,
         }}
       >
-        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-          <ListItemIcon sx={{ minWidth: '40px' }}>
-            <Ballot sx={{ color: '#FF149C' }} />
-          </ListItemIcon>
-          <Typography
-            paragraph
-            sx={{ display: 'inline', m: 0 }}
-          >
-            Imóveis por página:
-          </Typography>
-          <FormControl variant="standard" sx={{ m: 1 }}>
-            <Select
-              labelId="cards-per-page-quantity"
-              value={state.quantity}
-              sx={{
-                margin: '0',
-                padding: '1px',
-              }}
-              onChange={handleChange}
-            >
-              <MenuItem value="5">5</MenuItem>
-              <MenuItem value="10">10</MenuItem>
-              <MenuItem value="15">15</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-        <Divider />
-        <Box
+        <Paper
           sx={{
+            maxWidth: {
+              xs: '100vw',
+              sm: '100vw',
+              md: '300px',
+              lg: '300px',
+            },
+            p: 2,
+            ml: 2,
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            my: 2,
+            flexDirection: 'column',
+            position: 'fixed',
           }}
         >
-          <ListItemIcon sx={{ minWidth: '40px' }}>
-            <Search sx={{ color: '#FF149C' }} />
-          </ListItemIcon>
-          <Typography
-            paragraph
-            sx={{ display: 'inline', m: 0 }}
-          >
-            Filtros:
-          </Typography>
-        </Box>
-        <Paper sx={{ boxShadow: 0, border: 'solid 1px #dddddd' }}>
-          <Grid
-            container
-            spacing={1}
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            alignContent="center"
-            wrap="wrap"
+          <Box
+            className="mobileHidden"
             sx={{
-              xs: 1,
-              sm: 2,
-              md: 3,
-              p: 2,
+              display: {
+                xs: 'none',
+                sm: 'none',
+                md: 'flex',
+                lg: 'flex',
+              },
             }}
           >
-            <Grid item xs={1}>
-              <AttachMoney sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Preço:
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <ListItemIcon sx={{ minWidth: '40px' }}>
+                <Ballot sx={{ color: '#FF149C' }} />
+              </ListItemIcon>
+              <Typography
+                paragraph
+                sx={{ display: 'inline', m: 0, fontSize: '13px' }}
+              >
+                Imóveis por página:
               </Typography>
+              <FormControl variant="standard" sx={{ m: 1 }}>
+                <Select
+                  labelId="cards-per-page-quantity"
+                  value={state.quantity}
+                  sx={{
+                    margin: '0',
+                    padding: '1px',
+                    fontSize: '15px',
+                  }}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="5">5</MenuItem>
+                  <MenuItem value="10">10</MenuItem>
+                  <MenuItem value="15">15</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+            <Divider />
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              my: 2,
+            }}
+          >
+            <ListItemIcon sx={{ minWidth: '40px' }}>
+              <Search sx={{ color: '#FF149C' }} />
+            </ListItemIcon>
+            <Typography
+              paragraph
+              sx={{ display: 'inline', m: 0, fontSize: '13px' }}
+            >
+              Filtros:
+            </Typography>
+          </Box>
+          <Paper sx={{ boxShadow: 0, border: 'solid 1px #dddddd' }}>
+            <Grid
+              container
+              spacing={1}
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              alignContent="center"
+              wrap="wrap"
+              sx={{
+                xs: 3,
+                sm: 3,
+                md: 3,
+                lg: 3,
+                p: 1,
+              }}
+            >
+              <Grid item xs={1}>
+                <AttachMoney sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Preço:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <Slider defaultVaue={50} aria-label="Price slider" sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={1}>
+                <LocationOn sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Endereço:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                asid
+              </Grid>
+              <Grid item xs={1}>
+                <Superscript sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Área útil:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <Slider defaultVaue={50} aria-label="Area slider" sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={1}>
+                <DirectionsCar sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Vagas:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <Slider defaultVaue={50} aria-label="Car slider" sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={1}>
+                <Bathtub sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Banheiros:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <Slider defaultVaue={50} aria-label="Bath slider" sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={1}>
+                <Hotel sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: '13px' }}>
+                  Dormitórios:
+                </Typography>
+              </Grid>
+              <Grid item xs={7}>
+                <Slider defaultVaue={50} aria-label="Room slider" sx={{ color: '#FF149C' }} />
+              </Grid>
             </Grid>
-            <Grid item xs={7}>
-              <Slider defaultVaue={50} aria-label="Price slider" sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={1}>
-              <LocationOn sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Endereço:
-              </Typography>
-            </Grid>
-            <Grid item xs={7}>
-              asid
-            </Grid>
-            <Grid item xs={1}>
-              <Superscript sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Área útil:
-              </Typography>
-            </Grid>
-            <Grid item xs={7}>
-              <Slider defaultVaue={50} aria-label="Area slider" sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={1}>
-              <DirectionsCar sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Vagas:
-              </Typography>
-            </Grid>
-            <Grid item xs={7}>
-              <Slider defaultVaue={50} aria-label="Car slider" sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={1}>
-              <Bathtub sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Banheiros:
-              </Typography>
-            </Grid>
-            <Grid item xs={7}>
-              <Slider defaultVaue={50} aria-label="Bath slider" sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={1}>
-              <Hotel sx={{ color: '#FF149C' }} />
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                Dormitórios:
-              </Typography>
-            </Grid>
-            <Grid item xs={7}>
-              <Slider defaultVaue={50} aria-label="Room slider" sx={{ color: '#FF149C' }} />
-            </Grid>
-          </Grid>
+          </Paper>
         </Paper>
-      </Paper>
-      <ShowcaseGrid quantity={state.quantity} />
-    </Box>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={8}
+        lg={8}
+      >
+        <ShowcaseGrid quantity={state.quantity} />
+      </Grid>
+    </Grid>
   );
 }

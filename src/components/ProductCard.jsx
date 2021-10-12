@@ -58,11 +58,16 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{ width: 400, mt: 10 }}>
+    <Card
+      sx={{
+        width: '90%',
+        my: 1,
+        mx: 0,
+      }}
+    >
       <CardMedia
         component="img"
         image={infosTeste.image}
-        height="200"
         alt="House image"
       />
       <CardHeader
