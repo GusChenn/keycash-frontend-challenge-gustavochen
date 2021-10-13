@@ -11,6 +11,7 @@ import {
   Typography,
   Slider,
   Grid,
+  TextField,
 } from '@mui/material';
 import Ballot from '@mui/icons-material/Ballot';
 import Search from '@mui/icons-material/Search';
@@ -24,6 +25,7 @@ import ShowcaseGrid from './ShowcaseGrid';
 
 export default function Options() {
   const [state, setState] = useState({ quantity: '5' });
+
   const handleChange = (e) => {
     setState({ quantity: e.target.value });
   };
@@ -144,10 +146,10 @@ export default function Options() {
                 p: 1,
               }}
             >
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <AttachMoney sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Preço:
                 </Typography>
@@ -155,21 +157,21 @@ export default function Options() {
               <Grid item xs={7}>
                 <Slider defaultVaue={50} aria-label="Price slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <LocationOn sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Endereço:
                 </Typography>
               </Grid>
               <Grid item xs={7}>
-                asid
+                <TextField id="standard-basic" variant="standard" />
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <Superscript sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Área útil:
                 </Typography>
@@ -177,10 +179,10 @@ export default function Options() {
               <Grid item xs={7}>
                 <Slider defaultVaue={50} aria-label="Area slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <DirectionsCar sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={3.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Vagas:
                 </Typography>
@@ -188,26 +190,26 @@ export default function Options() {
               <Grid item xs={7}>
                 <Slider defaultVaue={50} aria-label="Car slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <Bathtub sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Banheiros:
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={6}>
                 <Slider defaultVaue={50} aria-label="Bath slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={1.5}>
                 <Hotel sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Dormitórios:
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={6}>
                 <Slider defaultVaue={50} aria-label="Room slider" sx={{ color: '#FF149C' }} />
               </Grid>
             </Grid>
