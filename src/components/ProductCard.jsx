@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import {
@@ -15,19 +14,9 @@ import {
   Grid,
   Divider,
 } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mr: '8px', fontWeight: 'bold' }}
-  >
-    •
-  </Box>
-);
-
+// Funcao que altera icone de expandir
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -38,14 +27,15 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
-
-export default function RecipeReviewCard() {
+// Funcao que altera estado 'expanded'
+export default function ProductCard() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  // Infos mock para testes
   const infosTeste = {
     address: 'Rua Tabapuã, 56 Itaim Bibi - SP',
     image: 'https://i.imgur.com/q1Mj5mf.jpg',
@@ -56,7 +46,6 @@ export default function RecipeReviewCard() {
     usableArea: 320,
     publish: true,
   };
-
   return (
     <Card
       sx={{
@@ -110,14 +99,23 @@ export default function RecipeReviewCard() {
           <Grid
             container
             spacing={1}
-            direction="row"
             justifyContent="center"
             alignItems="center"
             alignContent="center"
             wrap="wrap"
-            sx={{ xs: 1, sm: 2, md: 3 }}
+            sx={{
+              xs: 1,
+              sm: 2,
+              md: 3,
+              flexDirection: {
+                xs: 'column',
+                sm: 'column',
+                md: 'row',
+                lg: 'row',
+              },
+            }}
           >
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
               <Typography
                 paragraph
                 sx={{
@@ -144,7 +142,7 @@ export default function RecipeReviewCard() {
                 Dormitórios
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
               <Typography
                 paragraph
                 sx={{
@@ -170,7 +168,7 @@ export default function RecipeReviewCard() {
                 Banheiros
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={6} lg={12}>
               <Typography
                 paragraph
                 sx={{

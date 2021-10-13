@@ -1,26 +1,34 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-unused-vars */
 import { React, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, Typography } from '@mui/material';
 import ProductCard from './ProductCard';
 
+// Funcao que renderiza n cards
+const fivePosArray = [1, 2, 3, 4, 5];
+const tenPosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const maxPosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
 export default function ShowcaseGrid(props) {
-  /*
-  Fetch dos dados dos imoveis no state 'data' quando a pagina eh renderizada
-  */
-  const [data, setData] = useState();
+  // Fetch dos dados dos imoveis no state 'data' quando a pagina eh renderizada
   const [dataIsLoaded, setLoaded] = useState(false);
+  let data = [];
   useEffect(() => {
     fetch(
       'http://5e148887bce1d10014baea80.mockapi.io/keycash/challenge',
     )
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
-        setLoaded(true);
+        data = json;
+        setTimeout(() => { setLoaded(true); }, 500);
+        // log para teste
+        console.log(data);
       });
   }, []);
-  console.log(data);
   const { quantity } = props;
+  // Tela para quando as informações dos cards ainda não foram carregadas
   if (!dataIsLoaded) {
     return (
       <Typography
@@ -43,7 +51,7 @@ export default function ShowcaseGrid(props) {
       </Typography>
     );
   }
-  if (parseInt(quantity, 10) === 5) {
+  if (dataIsLoaded && parseInt(quantity, 10) === 5) {
     return (
       <Grid
         container
@@ -56,83 +64,78 @@ export default function ShowcaseGrid(props) {
           padding: 0,
         }}
       >
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-        >
-          <ProductCard />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-        >
-          <ProductCard />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-        >
-          <ProductCard />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-        >
-          <ProductCard />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-        >
-          <ProductCard />
-        </Grid>
+        {fivePosArray.map((item) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={6}
+            >
+              <ProductCard />
+            </Grid>
+          );
+        })}
       </Grid>
     );
   }
   if (parseInt(quantity, 10) === 10) {
     return (
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        {data.map((item) => (
-          <ProductCard
-            id={item.id}
-            address={item.address}
-            image={item.images}
-            price={item.price}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            parkingSpaces={item.parkingSpaces}
-            usableArea={item.usableArea}
-            publish={item.publish}
-          />
-        ))}
-      </Box>
+      <Grid
+        container
+        spacing={1}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        {tenPosArray.map((item) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={3}
+            >
+              <ProductCard />
+            </Grid>
+          );
+        })}
+      </Grid>
     );
   }
   if (parseInt(quantity, 10) === 15) {
     return (
-      <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </Box>
+      <Grid
+        container
+        spacing={1}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        {maxPosArray.map((item) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              lg={3}
+            >
+              <ProductCard />
+            </Grid>
+          );
+        })}
+      </Grid>
     );
   }
 }

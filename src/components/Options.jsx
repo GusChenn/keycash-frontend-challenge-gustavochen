@@ -65,10 +65,17 @@ export default function Options() {
               lg: '300px',
             },
             p: 2,
-            ml: 2,
+            ml: {
+              xs: 1,
+              ms: 0,
+              md: 0,
+              lg: 2,
+            },
             display: 'flex',
             flexDirection: 'column',
-            position: 'fixed',
+            position: {
+              lg: 'fixed',
+            },
           }}
         >
           <Box
@@ -146,71 +153,121 @@ export default function Options() {
                 p: 1,
               }}
             >
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
                 <AttachMoney sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={3.5}>
+              <Grid item xs={2}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Preço:
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  min
                 </Typography>
               </Grid>
               <Grid item xs={7}>
                 <Slider defaultVaue={50} aria-label="Price slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  max
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
                 <LocationOn sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={3.5}>
+              <Grid item xs={2}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Endereço:
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
-                <TextField id="standard-basic" variant="standard" />
+              <Grid item xs={9}>
+                <TextField id="standard-basic" variant="standard" sx={{ pl: 3 }} />
               </Grid>
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
                 <Superscript sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={3.5}>
+              <Grid item xs={2.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Área útil:
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  min
+                </Typography>
+              </Grid>
+              <Grid item xs={6.5}>
                 <Slider defaultVaue={50} aria-label="Area slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  max
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
                 <DirectionsCar sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={3.5}>
+              <Grid item xs={2.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Vagas:
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  min
+                </Typography>
+              </Grid>
+              <Grid item xs={6.5}>
                 <Slider defaultVaue={50} aria-label="Car slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  max
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
                 <Bathtub sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4.5}>
+              <Grid item xs={3}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Banheiros:
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  min
                 </Typography>
               </Grid>
               <Grid item xs={6}>
                 <Slider defaultVaue={50} aria-label="Bath slider" sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={1.5}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  max
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
                 <Hotel sx={{ color: '#FF149C' }} />
               </Grid>
-              <Grid item xs={4.5}>
+              <Grid item xs={3.5}>
                 <Typography sx={{ fontSize: '13px' }}>
                   Dormitórios:
                 </Typography>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  min
+                </Typography>
+              </Grid>
+              <Grid item xs={5.5}>
                 <Slider defaultVaue={50} aria-label="Room slider" sx={{ color: '#FF149C' }} />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography sx={{ fontSize: '10px' }}>
+                  max
+                </Typography>
               </Grid>
             </Grid>
           </Paper>
